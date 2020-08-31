@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Khand:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="assets/style.css" />
+    <title>Weather Dashboard</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <!--Jumbotron with title of page-->
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+                <h1 class="display-4">Weather Dashboard</h1>
+                <p class="lead"></p>
+            </div>
+        </div>
+
+        <div class="row">
+            <!--An aside nav that is col3-->
+            <div class="col-sm-3">
+                <div class="card">
+                    <!--SEARCH BAR-->
+                    <div class="row">
+                        <div class="search">
+                            <form action="#">
+                                <input type="text" placeholder="Search" name="search">
+                        </div>
+                        <button>
+                            <i class="fa fa-search"></i>
+                        </button>
+                        </form>
+                    </div>
+    
+                <ul class="list-group list-group-flush">
+                    <p class="list-group-item">
+                        <a href="#" class="card-link">New York</a>
+                    </p>
+                    <p class="list-group-item">
+                        <a href="#" class="card-link">Los Angeles</a>
+                    </p>
+                    <p class="list-group-item">
+                        <a href="#" class="card-link">London</a>
+                    </p>
+                    <p class="list-group-item">
+                        <a href="#" class="card-link">Tokyo</a>
+                    </p>
+                    <p class="list-group-item">
+                        <a href="#" class="card-link">Delhi</a>
+                    </p>
+                </ul>
+            </div>
+        </div>
+        <!--column container for main content-->
+        <div class="col-sm-9">
+            <div class="row">
+                <!--card holding local or current search weather content-->
+                <div class="col-sm-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">
+                            <ul>
+                                <p id="temperature">Temperature: </p>
+                                <p id="humidity">Humidity: </p>
+                                <p id="wind-speed">Wind Speed: </p>
+                                <p id="uv-index">UV Index: </p>
+                            </ul>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--New row with 5 day forecast cards-->
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="card">
+                        <h5 class="card-header">Five Day Forecast</h5>
+                        <div class="card-body">
+                            <div class="card-group">
+                                <div class="card">
+                                    <img src="..." class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <h5 class="card-title" id="2-day">Date</h5>
+                                        <p class="card-text">
+                                        <ul>
+                                            <p class="font-awesome-icon">@</p>
+                                            <p id="2-temperature"></p>
+                                            <p id="2-humidity"></p>
+                                        </ul>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <img src="..." class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <h5 class="card-title" id="2-day">Date</h5>
+                                        <p class="card-text">
+                                        <ul>
+                                            <p class="font-awesome-icon">@</p>
+                                            <p id="2-temperature"></p>
+                                            <p id="2-humidity"></p>
+                                        </ul>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <img src="..." class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <h5 class="card-title" id="2-day">Date</h5>
+                                        <p class="card-text">
+                                        <ul>
+                                            <p class="font-awesome-icon">@</p>
+                                            <p id="2-temperature"></p>
+                                            <p id="2-humidity"></p>
+                                        </ul>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <img src="..." class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <h5 class="card-title" id="2-day">Date</h5>
+                                        <p class="card-text">
+                                        <ul>
+                                            <p class="font-awesome-icon">@</p>
+                                            <p id="2-temperature"></p>
+                                            <p id="2-humidity"></p>
+                                        </ul>
+                                        </p>
+
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <img src="..." class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <h5 class="card-title" id="2-day">Date</h5>
+                                        <p class="card-text">
+                                        <ul>
+                                            <p class="font-awesome-icon">@</p>
+                                            <p id="2-temperature"></p>
+                                            <p id="2-humidity"></p>
+                                        </ul>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+</body>
+
+</html>

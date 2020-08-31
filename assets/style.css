@@ -1,0 +1,31 @@
+body {
+    background-color: #406ea7;
+
+}
+
+.jumbotron-fluid {
+    background-color: #3a6496;
+    background-image: url("gplay.png");
+    text-align: center;
+    color: white;
+
+@font-face {
+    font-family: 'Khand', sans-serif;
+    src: url("Khand-SemiBold.ttf") format("TrueType"),
+  }
+}
+
+.row {
+    margin: auto auto 10px 5px;
+}
+
+a {
+    color: navy;
+}
+
+a:hover{
+    color: rgb(13, 13, 82);
+}
+a:visited{
+    color: rgb(50, 21, 129);
+}
