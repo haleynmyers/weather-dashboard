@@ -8,11 +8,7 @@ body {
     background-image: url("gplay.png");
     text-align: center;
     color: white;
-
-@font-face {
-    font-family: 'Khand', sans-serif;
-    src: url("Khand-SemiBold.ttf") format("TrueType"),
-  }
+    font-weight: bolder;
 }
 
 .row {
@@ -28,4 +24,7 @@ a:hover{
 }
 a:visited{
     color: rgb(50, 21, 129);
+}
+.card-header{
+    background-color: palegoldenrod;
 }

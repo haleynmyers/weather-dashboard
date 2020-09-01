@@ -29,9 +29,9 @@
                     <div class="row">
                         <div class="search">
                             <form action="#">
-                                <input type="text" placeholder="Search" name="search">
+                                <input type="text" id="inputCity" placeholder="Search" name="search">
                         </div>
-                        <button>
+                        <button id="searchBtn">
                             <i class="fa fa-search"></i>
                         </button>
                         </form>
@@ -39,19 +39,19 @@
     
                 <ul class="list-group list-group-flush">
                     <p class="list-group-item">
-                        <a href="#" class="card-link">New York</a>
+                        <a href="#" class="card-link"></a>
                     </p>
                     <p class="list-group-item">
-                        <a href="#" class="card-link">Los Angeles</a>
+                        <a href="#" class="card-link"></a>
                     </p>
                     <p class="list-group-item">
-                        <a href="#" class="card-link">London</a>
+                        <a href="#" class="card-link"></a>
                     </p>
                     <p class="list-group-item">
-                        <a href="#" class="card-link">Tokyo</a>
+                        <a href="#" class="card-link"></a>
                     </p>
                     <p class="list-group-item">
-                        <a href="#" class="card-link">Delhi</a>
+                        <a href="#" class="card-link"></a>
                     </p>
                 </ul>
             </div>
@@ -63,13 +63,15 @@
                 <div class="col-sm-12">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
+                            <h5 class="card-title" id="query-city"></h5>
                             <p class="card-text">
                             <ul>
-                                <p id="temperature">Temperature: </p>
-                                <p id="humidity">Humidity: </p>
-                                <p id="wind-speed">Wind Speed: </p>
-                                <p id="uv-index">UV Index: </p>
+                                <p id="temperature"> </p>
+                                <p id="humidity"> </p>
+                                <p id="wind-speed"> </p>
+                                <p id="uv-index"> 
+                                    <div class="hide" id="uvBtn"> </div>
+                                </p>
                             </ul>
                             </p>
                         </div>
@@ -158,7 +160,8 @@
         </div>
     </div>
     </div>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="assets/script.js"></script>
 </body>
 
 </html>
