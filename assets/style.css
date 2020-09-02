@@ -3,6 +3,10 @@ body {
 
 }
 
+button {
+    background-color: gray;
+}
+
 .jumbotron-fluid {
     background-color: #3a6496;
     background-image: url("gplay.png");
@@ -12,7 +16,7 @@ body {
 }
 
 .row {
-    margin: auto auto 10px 5px;
+    margin: auto auto 5px 5px;
 }
 
 a {
@@ -26,5 +30,10 @@ a:visited{
     color: rgb(50, 21, 129);
 }
 .card-header{
-    background-color: palegoldenrod;
+    background-color: lightgrey;
+
 }
+
+/* #forecast-card{
+  
+} */

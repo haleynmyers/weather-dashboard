@@ -24,10 +24,10 @@ function searchInputCity(cityName){
         $("#query-city").append(printCityTitle);
         //inclue an icon
         var weatherIcon = response.weather[0].icon
-        console.log(weatherIcon);
-       var printIcon = $('<img>').attr('src', 'http://openweathermap.org/img/wn/' + weatherIcon + '@2x.png').attr('alt', 'weather icon');
-       $("#query-city").append(printIcon);
-
+    //    var printIcon = $('<img>').attr("src",'http://openweathermap.org/img/wn/' + weatherIcon + '@2x.png').attr("src",'http://openweathermap.org/img/wn/' + weatherIcon + '@2x.png'); 
+       $("#weather-icon").attr("src",'http://openweathermap.org/img/wn/' + weatherIcon + '@2x.png');
+       var weatherDescription = response.weather[0].description;
+        $('#weather-description').text(weatherDescription);
         //populate temperature for search result
         var tempFahrenheit = Math.floor((response.main.temp - 273) * (9/5) + 32);
         var printTemp = $("<p>").text("Current Temperature: " + tempFahrenheit + "*F");
@@ -85,7 +85,6 @@ function searchInputCity(cityName){
             method: "GET"
         }).then(function(response){
             console.log(response);
-        
             for(var i = 3;  i < response.list.length; i+=8){
                 console.log(i);
                 var indexDate = response.list[i].dt_txt.substring(5, 10);
@@ -117,7 +116,7 @@ function populateSearchHistory(){
     $('#recentSearches').empty();
     for(var i = 0; i < searchHistory.length && i < 5; i++){
         var recentSearches = JSON.parse(localStorage.getItem("searchHistory"));
-        $('#recentSearches').append('<li class="list-group-item"><button class="recentSearchBtn">' + (recentSearches[i]) + '</button></li>');
+        $('#recentSearches').append('<li class="list-group-item"><button class="btn btn-primary">' + (recentSearches[i]) + '</button></li>');
         //make the search history a button that links info for that city
         $("button").on("click", function(event){
             event.preventDefault();
