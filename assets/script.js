@@ -6,6 +6,11 @@
 
 function searchInputCity(cityName){
     $('#query-city').empty();
+    $("#temperature").empty();
+    $("#humidity").empty();
+    $("#wind-speed").empty();
+    $("#uv-index").empty();
+    $('#uvBtn').empty();
     var queryUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&appid=1b32de2789b68003db6d51b0bbe36f60";
     //Query OpenWeather for city name from search bar
     $.ajax({
@@ -54,15 +59,15 @@ function searchInputCity(cityName){
             $("#uv-index").append(printUvIndex);
         //Uv button color changes: 0-2:low(green), 3-5:moderate(yellow), 6-7:high(orange), 8-10:high(red), 11+:extreme(purple)
             if(queryUvIndex < 3){
-            $('#uvBtn').append('<button type="button" class="btn btn-outline-success" class="hide" id="green-button">Low</button>') 
+            $('#uvBtn').append('<button type="button" class="btn btn-outline-success"  id="green-button">Low</button>') 
             }else if(queryUvIndex >= 3 && queryUvIndex < 6){
-                $('#uvBtn').append('<button type="button" class="btn btn-outline-primary" class="hide" id="blue-button">Moderate</button>')
+                $('#uvBtn').append('<button type="button" class="btn btn-outline-primary"  id="blue-button">Moderate</button>')
             }else if(queryUvIndex >= 6 && queryUvIndex < 8){
-                $('#uvBtn').append('<button type="button" class="btn btn-outline-warning" class="hide" id="yellow-button">High</button>')
+                $('#uvBtn').append('<button type="button" class="btn btn-outline-warning" id="yellow-button">High</button>')
             }else if(queryUvIndex >=8 && queryUvIndex <= 10){
-                $('#uvBtn').append('<button type="button" class="btn btn-outline-danger" class="hide" id="red-outline-button">Very High</button>')
+                $('#uvBtn').append('<button type="button" class="btn btn-outline-danger" id="red-outline-button">Very High</button>')
             }else if(queryUvIndex >= 11) {
-                $('#uvBtn').append('<button type="button" class="btn btn-danger" class="hide" id="red-button">Extreme</button>')
+                $('#uvBtn').append('<button type="button" class="btn btn-danger"  id="red-button">Extreme</button>')
             }})
         
             searchForecast(queryCityName);
