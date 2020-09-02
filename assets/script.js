@@ -81,9 +81,6 @@ function searchInputCity(cityName){
             method: "GET"
         }).then(function(response){
             console.log(response);
-            
-            var i = [3, 11, 19, 27, 35];
-            i.forEach(createCard);
 
             function createCard(i){                
                 var desiredIndex = response.list[i];
@@ -92,17 +89,21 @@ function searchInputCity(cityName){
                 var indexTempFar = Math.floor(((indexTemp - 273) * (9/5) + 32));
                 var indexHumidity = desiredIndex.main.humidity;
                 var indexIcon = desiredIndex.weather[0].icon;
-                // console.log(indexTempFar);
+                
+                $("#forecastCard").append('<img class="img-thumbnail" id="forecast-icon" src="http://openweathermap.org/img/wn/' + indexIcon + '@2x.png/>');
                 $('#forecastCard').append('<div class="card">');
                 $('#forecastCard').append('<div class="card-body>');
-                $("#forecastCard").append('<h5 class="card-title" id="forecast-title"> Date: ' + indexDate + '</h5>');
+                $("#forecastCard").append('<h6 class="card-title" id="forecast-title"> Date: ' + indexDate + '</h6>');
                 // $("#forecastCard").text('Date: ' + indexDate);
-                // $("#forecast-icon").append('<img class="img-thumbnail" id="forecast-icon" src="http://openweathermap.org/img/wn/' + indexIcon + '@2x.png/>');
                 // $("#forecast-icon").attr("src",'http://openweathermap.org/img/wn/' + indexIcon + '@2x.png');
                 $("#forecastCard").append('<div class="card-text" id="forecast-info"> <p class="card-text"> High of: ' + indexTempFar + '*F</p><p class="card-text"> Humidity: ' + indexHumidity + '%</p>');
                 // $("#forecast-info").append('<p class="card-text"> High of: ' + indexTempFar + '*F</p>');
                 // $("#forecast-info").append('<p class="card-text"> Humidity: ' + indexHumidity + '%</p>');
-                } })
+            } 
+
+            var i = [3, 11, 19, 27, 35];
+            i.forEach(createCard);
+        })
         };
         
 //search history saved to localstorage as new array 
