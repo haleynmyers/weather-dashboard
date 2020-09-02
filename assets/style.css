@@ -42,3 +42,10 @@ a:visited{
     justify-content: center;
     align-items: center;
 }
+.weather-icon {
+    max-height: 75px;
+    max-width: 75px;
+}
+.row{
+    margin: 5px;
+}
