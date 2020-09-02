@@ -24,22 +24,21 @@
 
         <div class="row">
             <!--An aside nav that is col3-->
-            <div class="col-sm-4">
+            <div class="col-sm-3">
                 <div class="search">
                     <div class="row">
-                        <div class="col-10">
-                            <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Search City" id="inputCity"
+                        <div class="col-12">
+                            <div class="input-group" id="inputCity">
+                                <input type="text" class="form-control"  placeholder="Search City" 
                                     aria-describedby="button-addon2">
                                 <div class="input-group-append">
-                                    <button class="btn btn-outline-secondary" type="button"
-                                        id="button-addon2">Search</button>
+                                    <button class="btn btn-secondary" type="button" id="button-addon2">Search</button>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-10">
+                        <div class="col-12">
                             <div class="card">
                                 <ul class="list-group list-group-flush" id="recentSearches">
                                     <li class="list-group-item">You have no recent searches</li>
@@ -60,31 +59,56 @@
 
                                 <!--Card with weather conditions-->
                                 <div class="row">
-                                    <div class="card mb-3">
-                                        <div class="row no-gutters">
-                                            <div class="col-md-4">
+                                    <div class="col-4">
+                                        <div class="card" id="iconCard">
+                                            <div class="row no-gutters">
                                                 <img class="card-img" alt="weather icon" id="weather-icon">
                                             </div>
-                                            <div class="col-md-8">
-                                                <div class="card-body">
-                                                    <h5 class="card-title" id="weather-description"></h5>
-                                                    <p class="card-text"></p>
-                                                </div>
+                                            <div class="card-body">
+                                                <p class="card-title" id="weather-description"></p>
+                                                <p class="card-text"></p>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <ul>
-                                    <p id="temperature"> </p>
-                                    <p id="humidity"> </p>
-                                    <p id="wind-speed"> </p>
-                                    <div id="row">
-                                        <p id="uv-index">
-                                            <button id="uvBtn"> </button>
-                                        </p>
+
+                                    <div class="col-6">
+                                        <ul>
+                                            <h6 id="temperature"> </h6>
+                                            <p id="humidity"> </p>
+                                            <p id="wind-speed"> </p>
+                                            <!-- <div id="row"> -->
+                                            <p id="uv-index">
+                                            <div id="uvBtn"> </div>
+                                            </p>
+                                            <!-- </div> -->
+                                        </ul>
                                     </div>
-                                </ul>
-                                </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+</div>
+
+                <!--New row with 5 day forecast cards-->
+
+                <div class="col-sm-3">
+                    <div class="card">
+                        <h5 class="card-header">Five Day Forecast</h5>
+
+                        <div class="card-deck">
+                            <div class="card">
+                                <div class="card-body" id="forecastCard">
+                                    <div class="row">
+                                        <div class="col-2">
+                                            <!-- <div class="card" > -->
+                                            <!-- <h5 class="card-title" id="forecast-title"></h5>
+                                        <img class="card-img" id="forecast-icon"/>
+                                        <p class="card-text" id="forecast-info"> </p>  -->
+                                            <!-- </div> -->
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -92,40 +116,9 @@
             </div>
         </div>
 
-        <!--New row with 5 day forecast cards-->
-        <div class="row">
-            <div class="col-sm-10">
-                <div class="card" id="forecast-card">
-                    <h5 class="card-header">Five Day Forecast</h5>
-                    
-                        <!-- <div class="card-body"> -->
-                            <div class="card-group">
-                                <div class="card" id="forecastCard">
-                                    <div class="card-body" >
-                                        <h5 class="card-title" id="forecast-title"></h5>
-                                        <p class="card-text" id="forecast-info"> </p>
-                                    </div>
-                                </div> 
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                                    <!-- <div class="card">
-                                        <div class="card-body">
-                                            <h5 class="card-title" id="forecast-title"></h5>
-                                            <img class="card-img">
-                                            <p class="card-text" id="forecastCard"></p>
-        
-                                        </div>
-                                    </div> -->
-                </div>
-            </div>
-        </div>
-    </div>
-    </div>
-    </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script type="text/javascript" src="assets/script.js"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script type="text/javascript" src="assets/script.js"></script>
 </body>
 
 </html>

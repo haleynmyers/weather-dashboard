@@ -1,10 +1,12 @@
 body {
     background-color: #406ea7;
-
+    padding: 10px;
 }
-
-button {
-    background-color: gray;
+h3,
+h5,
+h6,
+p {
+    text-align: center;
 }
 
 .jumbotron-fluid {
@@ -13,10 +15,12 @@ button {
     text-align: center;
     color: white;
     font-weight: bolder;
+    max-height: 125px;
 }
 
-.row {
-    margin: auto auto 5px 5px;
+#iconCard {
+    background-color: lightgrey;
+    align: center;
 }
 
 a {
@@ -31,9 +35,10 @@ a:visited{
 }
 .card-header{
     background-color: lightgrey;
-
 }
-
-/* #forecast-card{
-  
-} */
+#uvBtn,
+.btn-primary {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

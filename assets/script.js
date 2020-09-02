@@ -1,9 +1,6 @@
 
 // $(document).ready(
 
-// var submitBtn = document.getElementById("searchBtn");
-// var searchHistory = JSON.parse(localStorage.getItem("searchHistory"));
-
 function searchInputCity(cityName){
     $('#query-city').empty();
     $("#temperature").empty();
@@ -60,46 +57,54 @@ function searchInputCity(cityName){
         //Uv button color changes: 0-2:low(green), 3-5:moderate(yellow), 6-7:high(orange), 8-10:high(red), 11+:extreme(purple)
             if(queryUvIndex < 3){
             $('#uvBtn').append('<button type="button" class="btn btn-outline-success"  id="green-button">Low</button>') 
-            }else if(queryUvIndex >= 3 && queryUvIndex < 6){
+            }else if(queryUvIndex = 3, queryUvIndex > 3 && queryUvIndex < 6){
                 $('#uvBtn').append('<button type="button" class="btn btn-outline-primary"  id="blue-button">Moderate</button>')
-            }else if(queryUvIndex >= 6 && queryUvIndex < 8){
+            }else if(queryUvIndex = 6, queryUvIndex > 6 && queryUvIndex < 8){
                 $('#uvBtn').append('<button type="button" class="btn btn-outline-warning" id="yellow-button">High</button>')
-            }else if(queryUvIndex >=8 && queryUvIndex <= 10){
+            }else if(queryUvIndex =8, queryUvIndex > 8 && queryUvIndex < 10, queryUvIndex = 10){
                 $('#uvBtn').append('<button type="button" class="btn btn-outline-danger" id="red-outline-button">Very High</button>')
-            }else if(queryUvIndex >= 11) {
+            }else if(queryUvIndex = 11, queryUvIndex < 11) {
                 $('#uvBtn').append('<button type="button" class="btn btn-danger"  id="red-button">Extreme</button>')
             }})
-        
-            searchForecast(queryCityName);
         }
             
-    )};
+    )
+};
 
     //populate 5-day forecast cards
-    function searchForecast(cityName){
+    function searchForecast(city){
         $('#forecastCard').empty()
-        var forecastUrl = "https://api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&appid=1b32de2789b68003db6d51b0bbe36f60";
-       
+        // cityName = $("#inputCity").val();
+        var forecastUrl = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=1b32de2789b68003db6d51b0bbe36f60";
         $.ajax({
             url: forecastUrl,
             method: "GET"
         }).then(function(response){
             console.log(response);
-            for(var i = 3;  i < response.list.length; i+=8){
-                console.log(i);
-                var indexDate = response.list[i].dt_txt.substring(5, 10);
-                // var forecastIcon = response.list.weather.icon
-                var indexTemp = response.list[i].main.temp;
-                var indexTempFar = (indexTemp - 273 * (9/5) + 32);
-                var indexHumidity = response.list[i].main.humidity;
-                // var indexIcon = response.list[i].weather.icon;
-                $("#forecastCard").append('<h5 class="card-title">' + indexDate + '</h5>');
-                // $('#forecastCard').append('<img src="http://openweathermap.org/img/wn/' + indexIcon + '@2x.png" width="50px" height="50px" alt="weather icon">');
-                $("#forecastCard").append('<p class="card-text"> Temp: ' + indexTempFar + '</p>');
-                $("#forecastCard").append('<p class="card-text"> Humidity: ' + indexHumidity + '</p>');
-            }})
-    };
+            
+            var i = [3, 11, 19, 27, 35];
+            i.forEach(createCard);
 
+            function createCard(i){                
+                var desiredIndex = response.list[i];
+                var indexDate = desiredIndex.dt_txt.substring(5, 10);
+                var indexTemp = desiredIndex.main.temp_max;
+                var indexTempFar = Math.floor(((indexTemp - 273) * (9/5) + 32));
+                var indexHumidity = desiredIndex.main.humidity;
+                var indexIcon = desiredIndex.weather[0].icon;
+                // console.log(indexTempFar);
+                $('#forecastCard').append('<div class="card">');
+                $('#forecastCard').append('<div class="card-body>');
+                $("#forecastCard").append('<h5 class="card-title" id="forecast-title"> Date: ' + indexDate + '</h5>');
+                // $("#forecastCard").text('Date: ' + indexDate);
+                // $("#forecast-icon").append('<img class="img-thumbnail" id="forecast-icon" src="http://openweathermap.org/img/wn/' + indexIcon + '@2x.png/>');
+                // $("#forecast-icon").attr("src",'http://openweathermap.org/img/wn/' + indexIcon + '@2x.png');
+                $("#forecastCard").append('<div class="card-text" id="forecast-info"> <p class="card-text"> High of: ' + indexTempFar + '*F</p><p class="card-text"> Humidity: ' + indexHumidity + '%</p>');
+                // $("#forecast-info").append('<p class="card-text"> High of: ' + indexTempFar + '*F</p>');
+                // $("#forecast-info").append('<p class="card-text"> Humidity: ' + indexHumidity + '%</p>');
+                } })
+        };
+        
 //search history saved to localstorage as new array 
 function updateSearchHistory(){
     newSearch = $('#inputCity').val();
@@ -111,10 +116,10 @@ function getSearchHistory(){
     searchHistory = JSON.parse(localStorage.getItem("searchHistory"));
 };
 
-//searchHistory populates the side nav buttons
 function populateSearchHistory(){
     $('#recentSearches').empty();
     for(var i = 0; i < searchHistory.length && i < 5; i++){
+        // capitalize(recentSearches[i]);
         var recentSearches = JSON.parse(localStorage.getItem("searchHistory"));
         $('#recentSearches').append('<li class="list-group-item"><button class="btn btn-primary">' + (recentSearches[i]) + '</button></li>');
         //make the search history a button that links info for that city
@@ -140,10 +145,12 @@ function init(){
     if(searchHistory){
         populateSearchHistory();
         searchInputCity(searchHistory[0]);
+        searchForecast(searchHistory[0]);
     }else {
         searchHistory = [];
         var nashville = "nashville";
         searchInputCity(nashville);
+        searchForecast(nashville);
     }
 };
 
