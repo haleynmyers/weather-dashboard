@@ -20,7 +20,7 @@ clone [this repository](https://github.com/haleynmyers/weather-dashboard) to you
 
 ## Usage 
 
-![alt text](https://github.com/haleynmyers/weather-dashboard/blob/master/assets/weatherQueryDemo.gif "Weather query demonstration")
+![alt text](https://github.com/haleynmyers/weather-dashboard/blob/master/assets/weather-dash-demo.gif "Weather query demonstration")
 
 Sharpen your knowledge of JavaScript with a few trivia questions, or practivce your coding skills by adding to the game on your own.
 *****

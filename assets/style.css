@@ -18,9 +18,14 @@ p {
     max-height: 125px;
 }
 
-#iconCard {
-    background-color: lightgrey;
-    align: center;
+.iconCardRow {
+    display: flex;
+    justify-content: space-evenly;
+}
+.iconCard{
+    background-color: white;
+    display: flex;
+    justify-content: space-evenly;
 }
 
 a {
@@ -36,7 +41,7 @@ a:visited{
 .card-header{
     background-color: lightgrey;
 }
-#uvBtn,
+.uvBtn,
 .btn-primary {
     display: flex;
     justify-content: center;
