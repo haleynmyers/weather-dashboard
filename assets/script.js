@@ -1,15 +1,18 @@
 
 // $(document).ready(init());
-
-    var cityName = $(".inputCity").val()
+var cityName = $(".inputCity").val();
 
 function searchInputCity(cityName){
+    // var cityName = $(".inputCity").val()
     $('.query-city').empty();
     $(".temperature").empty();
     $(".humidity").empty();
     $(".wind-speed").empty();
     $(".uv-index").empty();
     $('.uvBtn').empty();
+    $(".weather-icon").empty();
+    $(".weather-description").empty();
+
     
     var queryUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&appid=166a433c57516f51dfab1f7edaed8413";
     //Query OpenWeather for city name from search bar
@@ -35,6 +38,7 @@ function searchInputCity(cityName){
         $(".wind-speed").append(printWindSpeed);
 
         var uvIndexUrl = "https://api.openweathermap.org/data/2.5/uvi?appid=166a433c57516f51dfab1f7edaed8413&lat=" + response.coord.lat + "&lon=" + response.coord.lon;
+
         $.ajax({
             url: uvIndexUrl,
             method: "GET"
@@ -56,8 +60,9 @@ function searchInputCity(cityName){
                 $('.uvBtn').append('<button type="button" class="btn btn-danger"  id="red-button">Extreme</button>')
             }})
         }
-            
-    )};
+        )
+        createForecast(cityName);
+};
 
 function createForecast(cityName){
     $('.forecast-container').empty();
@@ -100,6 +105,7 @@ function updateSearchHistory(){
     newSearch = $('.inputCity').val();
     searchHistory.unshift(newSearch);
     localStorage.setItem("searchHistory", JSON.stringify(searchHistory));
+    populateSearchHistory();
 };
 
 function getSearchHistory(){
@@ -108,28 +114,26 @@ function getSearchHistory(){
 
 function populateSearchHistory(){
     $('.recentSearches').empty();
-    for(var i = 0; i < searchHistory.length && i < 5; i++){
+    for(var i = 0; i < 5; i++){
         var recentSearches = JSON.parse(localStorage.getItem("searchHistory"));
         $('.recentSearches').append('<li class="list-group-item"><button class="btn btn-primary listBtn">' + (recentSearches[i]) + '</button></li>');
-        //make the search history a button that links info for that city
-        $("button").on("click", function(event){
+    }
+        $(".listBtn").on("click", function(event){
             event.preventDefault();
-            searchInputCity($(this).val());
-})}};
+            var buttonCity = $(this).text();
+            console.log(buttonCity);
+            searchInputCity(buttonCity);
+        });
+};
 
-$('.listBtn').on("click", function(event){
-    event.preventDefault();
-    var buttonCity = $(this).text();
 
-    searchInputCity(buttonCity);
-    createForecast(buttonCity);
-});
 
-$(".searchBtn").on("submit", function(event){
-    event.preventDefault();
-    searchInputCity();
-    createForecast();
-    updateSearchHistory();
+
+$(".searchBtn").on("click", function(event){
+    var newSearch = $('.inputCity').val();
+    // event.preventDefault();
+    searchInputCity(newSearch);
+    updateSearchHistory(newSearch);
     populateSearchHistory();
 });
 
@@ -139,12 +143,12 @@ function init(){
     if(searchHistory){
         populateSearchHistory();
         searchInputCity(searchHistory[0]);
-        createForecast(searchHistory[0]);
+        // createForecast(searchHistory[0]);
     }else {
         searchHistory = [];
         var nashville = "nashville";
         searchInputCity(nashville);
-        createForecast(nashville);
+        // createForecast(nashville);
     }
 };
 
