@@ -86,7 +86,7 @@ function createForecast(cityName){
             var forecastContainer= $('.forecast-container');
             var card = $('<div class="card">');
             var cardBody = $('<div class="card-body">');
-            var cardTitle = $('<h5 class="card-title">' + titleDate + '</h5>');
+            var cardTitle = $('<h5 class="card-title">' + titleDate + '</h5> /n');
             var cardIcon = $("<img src='http://openweathermap.org/img/wn/" + forecastIcon + "@2x.png' alt='weather icon'/>");
             var cardTemp = $('<p> High of ' + forecastTempFar + "*F</p>");
             var cardHumidity = $('<p> Humidity: ' + forecastHumidity + "%</p>")
